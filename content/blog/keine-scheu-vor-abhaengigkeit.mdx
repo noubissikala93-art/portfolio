@@ -1,0 +1,95 @@
+---
+title: "Keine Scheu vor Abhängigkeit"
+date: "2026-02-05"
+readingTime: 14
+summary: "Abhängigkeiten sind kein Zeichen von Schwäche im System — sie sind Realität. Wer sie ignoriert, schafft Risiken. Wer sie kennt, kann sie managen."
+---
+
+## Das Unbehagen mit Abhängigkeiten
+
+In technischen Diskussionen wird Abhängigkeit oft als Schwäche dargestellt. "Wir haben zu viele externe Abhängigkeiten." "Das System ist zu stark an den Hersteller gebunden." "Wir müssen unabhängiger werden."
+
+Diese Aussagen klingen vernünftig. Und manchmal sind sie es. Aber häufig steckt dahinter ein Missverständnis: Abhängigkeiten sind kein Problem. Ungemanagte Abhängigkeiten sind das Problem.
+
+---
+
+## Was eine Abhängigkeit ist
+
+Eine Abhängigkeit entsteht, wenn dein System auf etwas angewiesen ist, das außerhalb deiner direkten Kontrolle liegt.
+
+Das kann sein:
+- eine externe API oder ein Webservice
+- ein Datenbanksystem eines Drittanbieters
+- eine Middleware oder ein Framework
+- ein anderes internes System, das von einem anderen Team betrieben wird
+- ein SaaS-Produkt, das in deinen Prozess eingebunden ist
+
+In realen Umgebungen hat jede Applikation Dutzende solcher Abhängigkeiten. Wer das nicht akzeptiert, lebt in einer Illusion.
+
+---
+
+## Arten von Abhängigkeiten
+
+Nicht alle Abhängigkeiten sind gleich. Es hilft, sie zu kategorisieren:
+
+### Technische Abhängigkeiten
+Bibliotheken, Frameworks, Betriebssysteme, Datenbanken. Diese sind in der Regel gut dokumentiert, versionierbar und austauschbar — wenn man sie aktiv pflegt.
+
+**Was ich tue:** Ich halte eine Liste aller technischen Abhängigkeiten einer Applikation. Ich kenne die aktuellen Versionen, die unterstützten Versionen, das End-of-Support-Datum. Ich plane Updates nicht reaktiv, sondern vorausschauend.
+
+### Systemabhängigkeiten
+Andere Systeme, auf deren Verfügbarkeit meine Applikation angewiesen ist. Ein Identity Provider. Ein Mailsystem. Eine zentrale Datenbank.
+
+**Was ich tue:** Für jede Systemabhängigkeit definiere ich: Was passiert, wenn sie ausfällt? Gibt es einen Fallback? Wie ist das Timeout-Verhalten konfiguriert? Ein System, das bei einer externen Störung einfach einfriert, ist schlecht designt — egal wie robust es sonst ist.
+
+### Personenabhängigkeiten
+Das unterschätzte Risiko. Wenn nur eine Person weiß, wie ein bestimmtes System konfiguriert wird oder wie ein kritischer Prozess abläuft, ist das eine Abhängigkeit — von einem Menschen.
+
+**Was ich tue:** Wissen muss dokumentiert werden, bevor es gebraucht wird. Runbooks, Ablaufdokumentationen, Notfallkontakte. Nicht als Misstrauensbekundung gegenüber Kollegen — sondern als Professionalisierung des Betriebs.
+
+### Herstellerabhängigkeiten (Vendor Lock-in)
+Die kontroverseste Kategorie. Wenn du ein proprietäres System nutzt, das sich nicht einfach ersetzen lässt, bist du abhängig vom Hersteller — seinen Preisen, seinen Entscheidungen, seiner Roadmap.
+
+**Was ich tue:** Ich bewerte Herstellerabhängigkeiten bewusst. Nicht alles ist vermeidbar oder sinnvoll zu vermeiden. Aber ich kenne die Konsequenzen meiner Entscheidungen.
+
+---
+
+## Warum Abhängigkeiten nicht schlimm sind
+
+Eine Applikation ohne Abhängigkeiten existiert nicht. Wer so tut, als ob Unabhängigkeit das Ziel wäre, baut Systeme, die entweder nie fertig werden oder an Komplexität kollabieren.
+
+Die sinnvollere Frage ist: Welche Abhängigkeiten sind ich akzeptabel, und wie manage ich sie?
+
+---
+
+## Abhängigkeiten sichtbar machen
+
+Das erste und wichtigste Mittel zur Abhängigkeitsverwaltung ist Transparenz. Was ich nicht sehe, kann ich nicht steuern.
+
+Ein einfaches Abhängigkeitsregister kann bereits viel leisten:
+- Name der Abhängigkeit
+- Typ (technisch, System, Person, Vendor)
+- Kritikalität (was passiert bei Ausfall?)
+- Version / Stand
+- Verantwortlicher Kontakt
+- Nächstes Review-Datum
+
+Das ist kein bürokratisches Dokument. Es ist ein Werkzeug, das im nächsten Incident entscheidet, ob du in zehn Minuten weißt, wen du anrufen musst — oder in zwei Stunden immer noch suchst.
+
+---
+
+## Abhängigkeiten im Incident
+
+Wenn eine Applikation ausfällt und die Ursache unklar ist, ist die erste Frage: Welche Abhängigkeit hat versagt?
+
+Wer seine Abhängigkeiten kennt, kann diese Frage in Minuten beantworten. Wer sie nicht kennt, tastet im Dunkeln.
+
+Das ist der praktische Wert von Abhängigkeitsmanagement — nicht in der Theorie, sondern um 2 Uhr morgens, wenn du einen Incident lösen musst.
+
+---
+
+## Fazit
+
+Keine Scheu vor Abhängigkeit — aber auch keine Gleichgültigkeit. Wer Abhängigkeiten kennt, dokumentiert und regelmäßig bewertet, hat keine Angst vor ihnen. Er beherrscht sie.
+
+Das ist kein Ziel, das man einmal erreicht und abhakt. Es ist eine laufende Disziplin. Und eine der wichtigsten im Application Management.
