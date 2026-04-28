@@ -215,7 +215,7 @@ const de: Dictionary = {
   },
   contact: {
     label: 'Kontakt',
-    availability: 'Offen für DevOps- und Platform-Engineering-Stellen.',
+    availability: 'Offen für System-, Application-Management- und DevOps-Stellen.',
     links: [
       {
         label: 'GitHub',
