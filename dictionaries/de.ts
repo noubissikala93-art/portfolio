@@ -23,7 +23,7 @@ const de: Dictionary = {
   about: {
     label: 'Über mich',
     paragraphs: [
-      'Ich betreue und entwickle IT-Plattformen mit Fokus auf Verfügbarkeit, Stabilität und reibungslosen Betrieb. Bei Diehl Aviation habe ich Python-basierte Automatisierungslösungen entwickelt und Daten aus heterogenen Quellen (SAP, Airbus, Boeing) integriert und aufbereitet.',
+      'Bachelor of Science in Angewandter Informatik (Hochschule Worms, 2025). Ich betreue und entwickle IT-Plattformen mit Fokus auf Verfügbarkeit, Stabilität und reibungslosen Betrieb. Bei Diehl Aviation habe ich Python-basierte Automatisierungslösungen entwickelt und Daten aus heterogenen Quellen (SAP, Airbus, Boeing) integriert und aufbereitet.',
       'Technische Probleme identifiziere ich schnell, bewerte Änderungsanforderungen strukturiert und setze Lösungen pragmatisch um, in enger Abstimmung mit internen Teams und externen Softwareanbietern.',
       'Meine Basis: Kubernetes, Infrastructure as Code und CI/CD, ergänzt durch praktische Python- und SQL-Kompetenz für Datenverarbeitung, Reporting und Prozessautomatisierung.'
     ],
