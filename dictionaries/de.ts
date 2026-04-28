@@ -23,9 +23,9 @@ const de: Dictionary = {
   about: {
     label: 'Über mich',
     paragraphs: [
-      'Ich entwickle und betreibe moderne Plattformen mit Fokus auf Automatisierung, CI/CD und zuverlässige Deployments.',
-      'Mein Ziel ist es, Systeme zu bauen, die reproduzierbar, sicher und wartbar sind und ohne manuellen Eingriff stabil laufen.',
-      'Dabei arbeite ich mit Technologien aus dem Bereich Cloud, Kubernetes und Infrastructure as Code.'
+      'Ich betreue und entwickle IT-Plattformen mit Fokus auf Verfügbarkeit, Stabilität und reibungslosen Betrieb. Bei Diehl Aviation habe ich Python-basierte Automatisierungslösungen entwickelt und Daten aus heterogenen Quellen — SAP, Airbus, Boeing — integriert und aufbereitet.',
+      'Technische Probleme identifiziere ich schnell, bewerte Änderungsanforderungen strukturiert und setze Lösungen pragmatisch um — in enger Abstimmung mit internen Teams und externen Softwareanbietern.',
+      'Meine Basis: Kubernetes, Infrastructure as Code und CI/CD — ergänzt durch praktische Python- und SQL-Kompetenz für Datenverarbeitung, Reporting und Prozessautomatisierung.'
     ],
   },
   projects: {
