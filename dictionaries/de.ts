@@ -23,9 +23,9 @@ const de: Dictionary = {
   about: {
     label: 'Über mich',
     paragraphs: [
-      'Ich betreue und entwickle IT-Plattformen mit Fokus auf Verfügbarkeit, Stabilität und reibungslosen Betrieb. Bei Diehl Aviation habe ich Python-basierte Automatisierungslösungen entwickelt und Daten aus heterogenen Quellen — SAP, Airbus, Boeing — integriert und aufbereitet.',
-      'Technische Probleme identifiziere ich schnell, bewerte Änderungsanforderungen strukturiert und setze Lösungen pragmatisch um — in enger Abstimmung mit internen Teams und externen Softwareanbietern.',
-      'Meine Basis: Kubernetes, Infrastructure as Code und CI/CD — ergänzt durch praktische Python- und SQL-Kompetenz für Datenverarbeitung, Reporting und Prozessautomatisierung.'
+      'Ich betreue und entwickle IT-Plattformen mit Fokus auf Verfügbarkeit, Stabilität und reibungslosen Betrieb. Bei Diehl Aviation habe ich Python-basierte Automatisierungslösungen entwickelt und Daten aus heterogenen Quellen (SAP, Airbus, Boeing) integriert und aufbereitet.',
+      'Technische Probleme identifiziere ich schnell, bewerte Änderungsanforderungen strukturiert und setze Lösungen pragmatisch um, in enger Abstimmung mit internen Teams und externen Softwareanbietern.',
+      'Meine Basis: Kubernetes, Infrastructure as Code und CI/CD, ergänzt durch praktische Python- und SQL-Kompetenz für Datenverarbeitung, Reporting und Prozessautomatisierung.'
     ],
   },
   projects: {
@@ -34,9 +34,9 @@ const de: Dictionary = {
   },
   projectsData: {
     'gitops-argocd': {
-      title: 'GitOps-Plattform — Argo CD',
+      title: 'GitOps-Plattform mit Argo CD',
       summary:
-        'Deklarative Deployment-Plattform auf Basis von Argo CD. Git ist die einzige Quelle der Wahrheit — kein manuelles kubectl.',
+        'Deklarative Deployment-Plattform auf Basis von Argo CD. Git ist die einzige Quelle der Wahrheit, kein manuelles kubectl.',
       problem:
         'Deployments waren manuell, inkonsistent und hinterließen kein Audit-Trail. Direkt mit kubectl durchgeführte Änderungen hatten keinen Rollback-Pfad.',
       solution:
@@ -70,7 +70,7 @@ const de: Dictionary = {
       ],
     },
     'vault-auto-unseal': {
-      title: 'Vault Auto-Unseal — On-Prem',
+      title: 'Vault Auto-Unseal (On-Prem)',
       summary:
         'Vault öffnet sich automatisch nach Pod- oder Node-Neustart. Keine Cloud-KMS-Abhängigkeit.',
       problem:
@@ -82,13 +82,13 @@ const de: Dictionary = {
       details: [
         'Vault A: Transit Secret Engine aktiviert, dient als Unseal-Provider',
         'Vault B: seal "transit" Stanza in vault.hcl konfiguriert',
-        'Vault A einmalig mit Shamir-Keys initialisiert — offline, sicher',
+        'Vault A einmalig mit Shamir-Keys initialisiert (offline, sicher)',
         'Getestet: Pod-Neustart, Node-Drain, vollständiger Cluster-Neustart',
         'Keine Abhängigkeit von AWS KMS, GCP Cloud KMS oder Azure Key Vault',
       ],
     },
     'dockerized-todo-app': {
-      title: 'Dockerized Todo App — CI/CD Pipeline',
+      title: 'Dockerized Todo App mit CI/CD Pipeline',
       summary:
         'Mehrstufige App (React + Node.js + MySQL) vollständig containerisiert mit Docker. GitLab-CI/CD-Pipeline mit automatisiertem Build, Trivy-Vulnerability-Scanning und Registry-Push.',
       problem:
@@ -96,15 +96,15 @@ const de: Dictionary = {
       solution:
         'Jeder Service wurde mit produktionsreifen Dockerfiles containerisiert (Multi-Stage-Build, Non-Root-User, gepinnte Tags). Eine 4-stufige GitLab-CI/CD-Pipeline wurde aufgebaut: Dependency-Audit → Docker-Build → Trivy-Scan → Push in die GitLab Container Registry.',
       outcome:
-        'Jeder Push auf main löst automatisch die Pipeline aus. CRITICAL/HIGH-CVEs blockieren den Push. Images werden mit dem Commit-SHA getaggt — unveränderlich und nachvollziehbar. npm wurde aus dem finalen Backend-Image entfernt, um die node-tar-CVE-Angriffsfläche vollständig zu eliminieren.',
+        'Jeder Push auf main löst automatisch die Pipeline aus. CRITICAL/HIGH-CVEs blockieren den Push. Images werden mit dem Commit-SHA getaggt, unveränderlich und nachvollziehbar. npm wurde aus dem finalen Backend-Image entfernt, um die node-tar-CVE-Angriffsfläche vollständig zu eliminieren.',
       details: [
-        'Multi-Stage-Dockerfile für React: Node baut das Bundle, nginx liefert es aus — kein Build-Tooling im finalen Image',
+        'Multi-Stage-Dockerfile für React: Node baut das Bundle, nginx liefert es aus, kein Build-Tooling im finalen Image',
         'Non-Root-User (appuser) im Node.js-Backend-Container',
-        'npm nach npm ci gelöscht — entfernt gebündelte tar-CVEs aus dem Runtime-Image',
-        'GitLab CI/CD: 4 Stages — checks, build, scan, push — Jobs innerhalb jeder Stage laufen parallel',
-        'Trivy scannt Docker-Tar-Artefakte vor dem Push — exit-code 1 bei CRITICAL/HIGH blockiert die Pipeline',
-        'Images mit Git-Commit-SHA getaggt (CI_COMMIT_SHORT_SHA) — keine latest-Tags',
-        'GitLab Container Registry als Image-Store — keine externen Credentials erforderlich',
+        'npm nach npm ci gelöscht, entfernt gebündelte tar-CVEs aus dem Runtime-Image',
+        'GitLab CI/CD: 4 Stages (checks, build, scan, push). Jobs innerhalb jeder Stage laufen parallel',
+        'Trivy scannt Docker-Tar-Artefakte vor dem Push, exit-code 1 bei CRITICAL/HIGH blockiert die Pipeline',
+        'Images mit Git-Commit-SHA getaggt (CI_COMMIT_SHORT_SHA), keine latest-Tags',
+        'GitLab Container Registry als Image-Store, keine externen Credentials erforderlich',
       ],
     },
     'netbox-kubernetes': {
@@ -112,7 +112,7 @@ const de: Dictionary = {
       summary:
         'Produktionsnahes NetBox-Deployment (IPAM/DCIM) mit persistentem Storage und Secrets aus Vault.',
       problem:
-        'NetBox benötigte persistentes PostgreSQL, Redis, TLS-Ingress und sichere Secret-Verwaltung — ohne manuelle Konfiguration bei jedem Neustart.',
+        'NetBox benötigte persistentes PostgreSQL, Redis, TLS-Ingress und sichere Secret-Verwaltung, ohne manuelle Konfiguration bei jedem Neustart.',
       solution:
         'Deployment über Helm-Chart mit PVCs für PostgreSQL und Media-Storage, Secrets aus Vault via ESO sowie Ingress mit TLS-Terminierung.',
       outcome:
@@ -126,11 +126,11 @@ const de: Dictionary = {
       ],
     },
     'k8s-load-scaling': {
-      title: 'K8s Horizontale Skalierung — Lasttest',
+      title: 'K8s Horizontale Skalierung: Lasttest',
       summary:
         'Anwendung mit HPA und definierten Ressourcenlimits deployed, anschließend unter Last gesetzt. Skalierungsverhalten, Pod-Erstellungslatenz und Antwortzeiten unter Stress beobachtet.',
       problem:
-        'Kein Einblick in das Anwendungsverhalten unter steigender Last. Kein Autoscaling konfiguriert, Ressourcenlimits undefiniert — Risiko von Ressourcenkonkurrenz und Clusterinstabilität.',
+        'Kein Einblick in das Anwendungsverhalten unter steigender Last. Kein Autoscaling konfiguriert, Ressourcenlimits undefiniert, Risiko von Ressourcenkonkurrenz und Clusterinstabilität.',
       solution:
         'Anwendung mit CPU/Memory Requests und Limits deployed. HPA mit 70 % CPU-Zielauslastung konfiguriert. Lasttests mit k6 durchgeführt (Ramp-up, Dauerlast, Spike), um Skalierungsauslöser und Antwortzeitdegradierung zu beobachten.',
       outcome:
@@ -146,13 +146,13 @@ const de: Dictionary = {
       ],
     },
     'python-reporting-automation': {
-      title: 'Python Reporting Automation — Diehl Aviation',
+      title: 'Python Reporting Automation bei Diehl Aviation',
       summary:
         'Automatisierung mehrerer Reporting-Workflows bei Diehl Aviation mit Python. Rohdaten aus SAP, Airbus- und Boeing-Systemen sowie Excel-Dateien werden eingelesen, transformiert und als strukturierte Excel-Berichte ausgegeben.',
       problem:
         'Manuelle Aufbereitung von Betriebsdaten aus heterogenen Quellen (SAP, Airbus, Boeing) war zeitaufwendig, fehleranfällig und nicht reproduzierbar. Jede Datenlieferung erforderte vollständige manuelle Neubearbeitung.',
       solution:
-        'Python-Skripte mit pandas für Datentransformation, Filterlogik und Quellenintegration entwickelt. openpyxl für strukturierte Excel-Ausgabe eingesetzt. Jeder Report als eigenständiges Modul — wiederverwendbare Hilfsfunktionen für gemeinsame Transformationsschritte.',
+        'Python-Skripte mit pandas für Datentransformation, Filterlogik und Quellenintegration entwickelt. openpyxl für strukturierte Excel-Ausgabe eingesetzt. Jeder Report als eigenständiges Modul mit wiederverwendbaren Hilfsfunktionen für gemeinsame Transformationsschritte.',
       outcome:
         'Fünf produktive Reporting-Workflows vollständig automatisiert: Boeing TAT, Flight Hours, BITE Converter, ASPI Report, Reliability Repair Shopfindings. Manuelle Bearbeitungszeit eliminiert, Berichte konsistent und reproduzierbar.',
       details: [
@@ -173,14 +173,14 @@ const de: Dictionary = {
       solution:
         'Python-Skript erfasst Daten aus einer definierten Quelle und lädt sie über SQLAlchemy in eine MySQL-Datenbank. Automatische Report-Generierung aus den gespeicherten Daten mit pandas. SQL-Abfragen für flexible historische Auswertungen.',
       outcome:
-        'Metriken vollständig persistent und historisch auswertbar. Automatische Berichte ohne manuelle Eingriffe. SQL-Abfragen ermöglichen flexible Ad-hoc-Analysen — direkt demonstrierbar.',
+        'Metriken vollständig persistent und historisch auswertbar. Automatische Berichte ohne manuelle Eingriffe. SQL-Abfragen ermöglichen flexible Ad-hoc-Analysen, direkt demonstrierbar.',
       details: [
         'Python-Skript mit SQLAlchemy ORM für datenbankagnostische Anbindung',
         'MySQL-Datenbankschema für strukturierte Metrikspeicherung',
         'Automatisierte Datenpipeline: Erfassung → Validierung → Speicherung → Report',
         'pandas für Aggregation und Auswertung gespeicherter Daten',
         'SQL-Abfragebeispiele: Tageswerte, Wochenaggregation, Anomalieerkennung',
-        'Konfigurierbar über Umgebungsvariablen — keine Credentials im Code',
+        'Konfigurierbar über Umgebungsvariablen, keine Credentials im Code',
       ],
     },
   },
