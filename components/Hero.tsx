@@ -16,12 +16,12 @@ interface HeroProps {
 
 export default function Hero({ dict }: HeroProps) {
   return (
-    <section className="min-h-[calc(100vh-3.5rem)] flex items-center py-20">
+    <section className="lg:min-h-[calc(100vh-3.5rem)] flex items-center py-14 lg:py-20">
       <div className="max-w-5xl mx-auto px-6 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
           {/* Left — content */}
-          <div className="space-y-10">
+          <div className="space-y-7 lg:space-y-10">
 
             {/* Stats row */}
             <div className="flex gap-10">
@@ -38,7 +38,7 @@ export default function Hero({ dict }: HeroProps) {
             </div>
 
             {/* Main heading */}
-            <h1 className="text-[5.5rem] sm:text-[7rem] font-bold tracking-tight leading-none text-neutral-900">
+            <h1 className="text-[3.5rem] sm:text-[5.5rem] lg:text-[7rem] font-bold tracking-tight leading-none text-neutral-900">
               {dict.heading}
             </h1>
 
