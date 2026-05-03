@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import type { Dictionary } from '@/lib/dictionaries'
 
 interface NavbarProps {
@@ -11,12 +12,15 @@ interface NavbarProps {
 
 export default function Navbar({ dict, locale }: NavbarProps) {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === `/${locale}`
+  const anchor = (id: string) => isHome ? `#${id}` : `/${locale}#${id}`
 
   const anchorLinks = [
-    { label: dict.about, href: '#about' },
-    { label: dict.projects, href: '#projects' },
-    { label: dict.skills, href: '#skills' },
-    { label: dict.contact, href: '#contact' },
+    { label: dict.about, href: anchor('about') },
+    { label: dict.projects, href: anchor('projects') },
+    { label: dict.skills, href: anchor('skills') },
+    { label: dict.contact, href: anchor('contact') },
   ]
 
   return (

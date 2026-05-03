@@ -36,10 +36,17 @@ export default function ProjectCard({ project, content, locale, detailsLink }: P
           {content.summary}
         </p>
 
-        {/* Link */}
-        <span className="text-xs font-mono text-neutral-400 group-hover:text-neutral-900 transition-colors">
-          {detailsLink}
-        </span>
+        {/* Link + company badge */}
+        <div className="flex items-center justify-between gap-3">
+          <span className="text-xs font-mono text-neutral-400 group-hover:text-neutral-900 transition-colors">
+            {detailsLink}
+          </span>
+          {project.company && (
+            <span className="text-xs font-mono bg-neutral-200 text-neutral-900 px-2 py-1">
+              {project.company}
+            </span>
+          )}
+        </div>
 
       </div>
     </Link>
