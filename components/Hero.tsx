@@ -16,8 +16,20 @@ interface HeroProps {
 
 export default function Hero({ dict }: HeroProps) {
   return (
-    <section className="lg:min-h-[calc(100vh-3.5rem)] flex items-center py-14 lg:py-20">
-      <div className="max-w-5xl mx-auto px-6 w-full">
+    <section className="relative lg:min-h-[calc(100vh-3.5rem)] flex items-center py-14 lg:py-20">
+
+      {/* Mobile background photo */}
+      <div className="absolute inset-0 lg:hidden overflow-hidden" aria-hidden="true">
+        <Image
+          src="/photo.png"
+          alt=""
+          fill
+          className="object-cover object-top opacity-15"
+          priority
+        />
+      </div>
+
+      <div className="max-w-5xl mx-auto px-6 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
           {/* Left — content */}
@@ -30,7 +42,7 @@ export default function Hero({ dict }: HeroProps) {
                   <span className="block text-lg font-bold font-mono leading-none text-neutral-900">
                     {stat.value}
                   </span>
-                  <span className="block text-xs text-neutral-400 mt-1.5 tracking-wide">
+                  <span className="block text-xs text-neutral-600 lg:text-neutral-400 mt-1.5 tracking-wide">
                     {stat.label}
                   </span>
                 </div>
@@ -47,7 +59,7 @@ export default function Hero({ dict }: HeroProps) {
               <p className="text-xl sm:text-2xl font-semibold text-neutral-800">
                 {dict.role}
               </p>
-              <p className="text-base text-neutral-400">
+              <p className="text-base text-neutral-500 lg:text-neutral-400">
                 {dict.tagline}
               </p>
             </div>
